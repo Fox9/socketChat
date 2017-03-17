@@ -1,25 +1,87 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZOu-zw-Vsy">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Users View Controller-->
+        <scene sceneID="unz-bN-GlX">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="zOY-nS-yMe" customClass="UsersViewController" customModule="SocketChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="yTd-56-HbI"/>
+                        <viewControllerLayoutGuide type="bottom" id="nHG-1r-y5P"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <view key="view" contentMode="scaleToFill" id="yFt-dm-r23">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QiF-Kp-zRy">
+                                <rect key="frame" x="137.5" y="617" width="100" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="6MX-Dc-xAL"/>
+                                </constraints>
+                                <state key="normal" title="Join Chat">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="joinToChatButton:" destination="zOY-nS-yMe" eventType="touchUpInside" id="lho-fM-Im7"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0AR-zf-cEG">
+                                <rect key="frame" x="-4" y="64" width="383" height="530"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="nHG-1r-y5P" firstAttribute="top" secondItem="QiF-Kp-zRy" secondAttribute="bottom" constant="20" id="2Dr-8a-Xcs"/>
+                            <constraint firstItem="QiF-Kp-zRy" firstAttribute="top" secondItem="0AR-zf-cEG" secondAttribute="bottom" constant="23" id="H36-Bd-dey"/>
+                            <constraint firstItem="QiF-Kp-zRy" firstAttribute="centerX" secondItem="yFt-dm-r23" secondAttribute="centerX" id="SM1-IZ-VmA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0AR-zf-cEG" secondAttribute="trailing" constant="-20" id="TfZ-2D-gLW"/>
+                            <constraint firstItem="0AR-zf-cEG" firstAttribute="top" secondItem="yTd-56-HbI" secondAttribute="bottom" id="V40-uU-a0p"/>
+                            <constraint firstItem="0AR-zf-cEG" firstAttribute="leading" secondItem="yFt-dm-r23" secondAttribute="leadingMargin" constant="-20" id="xqJ-fS-dRz"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="nYy-j1-Nnv">
+                        <barButtonItem key="rightBarButtonItem" title="Exit" id="XO3-TG-NYE">
+                            <connections>
+                                <action selector="exitChat:" destination="zOY-nS-yMe" id="nQd-NB-cJv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tblUserList" destination="0AR-zf-cEG" id="i5H-2y-Zx6"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MIY-8R-HUp" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1569" y="621"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="JoK-nT-Lel">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZOu-zw-Vsy" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XJO-B0-rrs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="zOY-nS-yMe" kind="relationship" relationship="rootViewController" id="yYD-DB-RLw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MaM-M1-Ovg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="762" y="621"/>
         </scene>
     </scenes>
 </document>
